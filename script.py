@@ -7,8 +7,7 @@ news = requests.get('https://nairametrics.com/')
 news_soup = BeautifulSoup(news.text, 'html.parser')
 
 news_item_soup = news_soup.select('.jeg_post_title')
-# print(news_item_soup[0].a['href'])
-print(news_item_soup[0].a.getText())
+
 news_items = []
 
 for index, value in enumerate(news_item_soup):
