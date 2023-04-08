@@ -1,9 +1,10 @@
 # news_scraping
 
-It exract data from from provided url, the data was formatted in title and url.
+It exract data from from google news, the data was formatted in title, url and date.
 
-It returns array of object, each object contains title of the news and url to the full news
+It returns array of object, each object contains title of the news, url to the full news, and date when it was posted 
 
+The results would be saved to an csv file.
 
 ## Getting Started
 
