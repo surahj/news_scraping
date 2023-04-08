@@ -22,7 +22,13 @@ pip install -r requirements.txt
 This will install all of the required packages we selected within the `requirements.txt` file.
 
 
-### Running the script
+### To scrape google news Run the script as below
 ```
 python3 script.py
 ```
+
+### To scrape nipc.gov.ng website Run the script as below
+```
+python3 nipc_news.py
+```
+
