@@ -29,6 +29,8 @@ python3 script.py
 ```
 
 ### To scrape nipc.gov.ng website Run the script as below
+
+Edit ```years``` and ```months``` variable in ```nipc_news.py```  to the range of year and months to scrape from.
 ```
 python3 nipc_news.py
 ```
