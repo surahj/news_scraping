@@ -8,21 +8,23 @@ data = []
 
 #function to Send a GET request to the URL and parse the HTML response with BeautifulSoup
 def get_data(url):
-  response = requests.get(url)
+  headers = {"User-Agent": "Mozilla/5.0"}
+  response = requests.get(url, headers=headers)
   soup = BeautifulSoup(response.text, 'html.parser')
 
   # Find all the news article links on the page
   try:
     article_links = soup.select('.posts-container')[0].find_all('article')
-  except:
+  except Exception as e:
     article_links = None
+    print("The error is ", e)
     return
 
   # Loop through the article links and extract the data we want
   for i in range(len(article_links)):
-    title = article_links[i].select('.title')[0].getText().strip()
-    href = article_links[i].select('.title')[0].a['href']
-    publish_date = article_links[i].select('.date')[0].getText().replace('\n', ' ')
+    title = article_links[i].css.select('.title')[0].getText().strip()
+    href = article_links[i].css.select('.title')[0].a['href']
+    publish_date = article_links[i].css.select('.date')[0].getText().replace('\n', ' ')
 
     # Append the data to our list
     data.append([title, href, publish_date])
@@ -34,6 +36,7 @@ def get_data(url):
   except:
     next_link = None
   if next_link:
+
     print('next_link is', next_link)
     get_data(next_link)
 
